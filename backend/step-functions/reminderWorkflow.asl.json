@@ -1,0 +1,15 @@
+{
+  "Comment": "Reminder notification flow",
+  "StartAt": "SendReminder",
+  "States": {
+    "SendReminder": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "Message": "Reminder: You have an appointment soon.",
+        "TopicArn": "arn:aws:sns:us-east-2:123456789012:AppointmentReminders"
+      },
+      "End": true
+    }
+  }
+}
